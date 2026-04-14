@@ -3,301 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Orca | Black & White</title>
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --panel: #111;
-      --soft: #1c1c1c;
-      --text: #f5f5f5;
-      --muted: #b9b9b9;
-      --line: #2a2a2a;
-      --accent: #fff;
-      --radius: 18px;
-      --shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(circle at top, #151515 0%, var(--bg) 55%);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.5;
-    }
-
-    .wrap {
-      width: min(1100px, 92vw);
-      margin: 48px auto 72px;
-    }
-
-    .hero {
-      border: 1px solid var(--line);
-      background: linear-gradient(140deg, #0d0d0d, #181818);
-      border-radius: calc(var(--radius) + 6px);
-      padding: 44px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: -40% -10% auto auto;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(255,255,255,.08), transparent 60%);
-      pointer-events: none;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      letter-spacing: .02em;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      margin-top: 12px;
-      color: var(--muted);
-      max-width: 70ch;
-      font-size: 1.05rem;
-    }
-
-    .controls {
-      margin-top: 26px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    button {
-      border: 1px solid #fff;
-      background: #fff;
-      color: #000;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255,255,255,.15);
-    }
-
-    button.secondary {
-      background: transparent;
-      color: #fff;
-      border-color: #555;
-    }
-
-    button.secondary:hover {
-      border-color: #fff;
-      background: #fff;
-      color: #000;
-    }
-
-    .spotlight {
-      margin-top: 18px;
-      border: 1px solid var(--line);
-      background: #0c0c0c;
-      border-radius: 12px;
-      padding: 14px 16px;
-      color: #eaeaea;
-      min-height: 56px;
-      display: flex;
-      align-items: center;
-    }
-
-    .grid {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 14px;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, #141414, #0f0f0f);
-      border-radius: var(--radius);
-      padding: 18px;
-      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,.08), transparent);
-      transform: translateX(-120%);
-      transition: transform .7s ease;
-    }
-
-    .card:hover::before { transform: translateX(120%); }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #fff;
-      box-shadow: 0 12px 28px rgba(0,0,0,.45);
-    }
-
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: #fff;
-    }
-
-    .card p {
-      margin: 0;
-      color: #d4d4d4;
-      font-size: .98rem;
-    }
-
-    .timeline {
-      margin-top: 26px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-      padding: 18px;
-    }
-
-    .timeline h2 {
-      margin: 0 0 12px;
-      font-size: 1.05rem;
-      color: #fff;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .timeline ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .timeline li {
-      display: grid;
-      grid-template-columns: 70px 1fr;
-      gap: 12px;
-      padding: 10px;
-      border: 1px solid #262626;
-      border-radius: 12px;
-      background: #0d0d0d;
-    }
-
-    .timeline .age {
-      color: #fff;
-      font-weight: 700;
-      text-align: center;
-      background: #1a1a1a;
-      border-radius: 9px;
-      padding: 8px 0;
-    }
-
-    .footer {
-      margin-top: 22px;
-      color: #999;
-      font-size: .92rem;
-      text-align: center;
-    }
-  </style>
+  <title>Orca Atlas | Home</title>
+  <meta name="description" content="A black-and-white multi-page site about orcas, their biology, culture, hunting strategies, and remarkable intelligence." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <h1>Orca, Elegance in Black & White</h1>
-      <p class="subtitle">
-        Orcas (killer whales) are apex predators with rich social culture, family dialects, and extraordinary intelligence.
-        Explore a premium snapshot of what makes them one of the ocean’s most fascinating animals.
-      </p>
-
-      <div class="controls">
-        <button id="randomFactBtn">Reveal a random fact</button>
-        <button class="secondary" id="toggleCardsBtn">Toggle details</button>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">Orca <span>Atlas</span></a>
+      <div class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="biology.html">Biology</a>
+        <a href="culture.html">Culture</a>
+        <a href="hunting.html">Hunting</a>
       </div>
-      <div class="spotlight" id="spotlight">Click the button to surface an interesting orca fact.</div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Monochrome field guide</div>
+          <h1>Orcas are not just powerful, they are profoundly social.</h1>
+          <p class="lead">
+            Orcas, also known as killer whales, are apex predators found across the world’s oceans. Their lives are shaped by
+            family bonds, learned hunting traditions, vocal identity, and remarkable ecological specialization.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="culture.html">Explore pod culture</a>
+            <a class="btn ghost" href="hunting.html">See hunting strategies</a>
+          </div>
+          <div class="fact-strip" id="random-fact">Tap the button to surface a fascinating orca fact.</div>
+          <div class="hero-actions" style="margin-top:14px;">
+            <button class="btn ghost" id="fact-button" type="button">Reveal a random fact</button>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="assets/images/orca-hero.jpg" alt="Black-and-white image of an orca breaching" />
+        </div>
+      </div>
     </section>
 
-    <section class="grid" id="factGrid">
-      <article class="card">
-        <h3>Social Intelligence</h3>
-        <p>Orcas live in tight family groups (pods), and many stay with their mothers for life.</p>
-      </article>
-      <article class="card">
-        <h3>Unique Dialects</h3>
-        <p>Different pods have distinct vocal patterns, almost like cultural languages passed down generations.</p>
-      </article>
-      <article class="card">
-        <h3>Global Presence</h3>
-        <p>Orcas are found in every ocean, from polar seas to tropical waters.</p>
-      </article>
-      <article class="card">
-        <h3>Hunting Strategy</h3>
-        <p>They often hunt cooperatively, using learned techniques like wave-washing seals off ice.</p>
-      </article>
-      <article class="card">
-        <h3>Top Predator</h3>
-        <p>As apex predators, wild adult orcas have virtually no natural predators.</p>
-      </article>
-      <article class="card">
-        <h3>Size & Power</h3>
-        <p>Males can exceed 8 meters (26 ft) and have dorsal fins up to 1.8 meters (6 ft) tall.</p>
-      </article>
+    <section class="section wrap">
+      <h2 class="section-title">Why orcas fascinate scientists and the public</h2>
+      <p class="section-copy">
+        Orcas sit at the intersection of intelligence, cooperation, and ecological power. They are among the few non-human animals
+        whose populations are often discussed in cultural as well as biological terms.
+      </p>
+      <div class="stats-grid">
+        <article class="stat"><strong>Every ocean</strong><span>From polar waters to tropical seas, orcas have an almost global distribution.</span></article>
+        <article class="stat"><strong>Apex status</strong><span>Adult orcas have virtually no natural predators in the wild.</span></article>
+        <article class="stat"><strong>Learned behavior</strong><span>Many hunting techniques are taught socially rather than repeated by instinct alone.</span></article>
+        <article class="stat"><strong>Long memory</strong><span>Older females can help guide pods using remembered routes and feeding knowledge.</span></article>
+      </div>
     </section>
 
-    <section class="timeline">
-      <h2>Life Journey (Typical)</h2>
-      <ul>
-        <li><span class="age">0-1 yr</span><span>Calves stay close to mom and learn movement, social calls, and pod behavior.</span></li>
-        <li><span class="age">2-10</span><span>Young orcas develop hunting awareness and social roles through observation and play.</span></li>
-        <li><span class="age">10-30</span><span>Adults become skilled hunters and key members in pod cooperation and leadership.</span></li>
-        <li><span class="age">30+</span><span>Older females can guide pods with memory of migration routes and food locations.</span></li>
-      </ul>
+    <section class="section wrap">
+      <div class="card-grid">
+        <article class="card">
+          <h3>Distinct ecotypes</h3>
+          <p>Different orca populations can specialize in different prey, habitats, and sound patterns, making “orca” a broad label for very different lifestyles.</p>
+        </article>
+        <article class="card">
+          <h3>Pod identity</h3>
+          <p>Pods can be recognized by dialects, hunting traditions, and long-term social relationships that persist across decades.</p>
+        </article>
+        <article class="card">
+          <h3>Strategic predators</h3>
+          <p>Wave-washing, coordinated chasing, tail-slapping fish, and shoreline ambushes all show behavioral flexibility.</p>
+        </article>
+        <article class="card">
+          <h3>Built for speed</h3>
+          <p>With strong musculature and streamlined bodies, orcas can move quickly enough to pressure agile prey in open water.</p>
+        </article>
+        <article class="card">
+          <h3>Family continuity</h3>
+          <p>Many offspring remain with their mothers for life, creating stable family groups with long-lived social continuity.</p>
+        </article>
+        <article class="card">
+          <h3>More than charisma</h3>
+          <p>Orcas matter scientifically because they help reveal how intelligence, ecology, and culture can interact in the ocean.</p>
+        </article>
+      </div>
     </section>
 
-    <p class="footer">Minimal palette, maximal presence, just like the orca.</p>
+    <section class="section wrap">
+      <div class="feature-grid">
+        <div class="timeline">
+          <h3>Life journey in broad outline</h3>
+          <ul>
+            <li><span class="label">Calf</span><span>Newborns stay close to their mothers and begin learning vocal patterns, pod spacing, and coordinated movement almost immediately.</span></li>
+            <li><span class="label">Juvenile</span><span>Young orcas learn through observation, play, and repeated exposure to the hunting style of their own community.</span></li>
+            <li><span class="label">Adult</span><span>Adults become skilled hunters and dependable members of pod cooperation, often taking on prey-specific roles.</span></li>
+            <li><span class="label">Elder</span><span>Older females may become vital knowledge holders, especially in seasons when prey is harder to find.</span></li>
+          </ul>
+        </div>
+        <div class="quote">
+          “What makes orcas extraordinary is not just that they are formidable hunters. It is that their power is shaped by memory, learning, and social inheritance.”
+          <strong>Interpretive summary of why orcas remain such compelling marine animals</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <h2 class="section-title">Visual moments</h2>
+      <p class="section-copy">A small monochrome gallery that keeps the site elegant while giving it more presence than a text-only reference page.</p>
+      <div class="image-grid">
+        <article class="image-card">
+          <img src="assets/images/orca-pod.jpg" alt="A pod of orcas swimming together in black and white" />
+          <div class="caption">
+            <h3>Collective movement</h3>
+            <p>Pods often move with striking cohesion, reinforcing the social dimension of orca life.</p>
+          </div>
+        </article>
+        <article class="image-card">
+          <img src="assets/images/orca-portrait.jpg" alt="Close black-and-white portrait of an orca at the surface" />
+          <div class="caption">
+            <h3>Surface presence</h3>
+            <p>The contrast of black-and-white patterning is part of what makes orcas so visually memorable.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="callout">
+        <h3>Where to go next</h3>
+        <ul>
+          <li><a href="biology.html">Biology</a> for anatomy, lifespan, and physical adaptation</li>
+          <li><a href="culture.html">Culture</a> for dialects, matriarchs, and social learning</li>
+          <li><a href="hunting.html">Hunting</a> for prey specialization and cooperative tactics</li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <script>
-    const facts = [
-      "Orca brains are highly developed, especially in areas linked to social processing.",
-      "Some orca pods specialize in fish, while others specialize in marine mammals.",
-      "Female orcas can live for many decades, with some estimated to surpass 80 years.",
-      "Orcas can coordinate hunts with timing and precision that resembles tactical teamwork.",
-      "Pod identity can be recognized through call patterns, behavior, and preferred prey.",
-      "Orca calves are born with a peach-orange tint in some white patches, which fades with age."
-    ];
+  <footer class="site-footer">
+    <div class="wrap">Orca Atlas, black-and-white by design, richer and more detailed across multiple pages. <span id="year"></span></div>
+  </footer>
 
-    const spotlight = document.getElementById('spotlight');
-    const randomFactBtn = document.getElementById('randomFactBtn');
-    const toggleCardsBtn = document.getElementById('toggleCardsBtn');
-    const cards = Array.from(document.querySelectorAll('.card p'));
-
-    let hidden = false;
-
-    randomFactBtn.addEventListener('click', () => {
-      const pick = facts[Math.floor(Math.random() * facts.length)];
-      spotlight.textContent = pick;
-    });
-
-    toggleCardsBtn.addEventListener('click', () => {
-      hidden = !hidden;
-      cards.forEach(p => {
-        p.style.display = hidden ? 'none' : 'block';
-      });
-      toggleCardsBtn.textContent = hidden ? 'Show details' : 'Toggle details';
-    });
-  </script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
